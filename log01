@@ -1,1 +1,424 @@
 
+Step 1 : Building OSM and patch data for tile +48-124 : 
+--------
+
+-> Downloading airport and water/ground boundary data from Openstreetmap :
+    Recycling OSM data for way["aeroway"="aerodrome"]
+     A total of 64 node(s) and 3 way(s).
+       * K1RL Point Roberts Airpark
+       * KCLM William R. Fairchild International Airport
+       *      Waldron Airstrip
+    Recycling OSM data for rel["aeroway"="aerodrome"]
+     A total of 313 node(s) and 3 relation(s).
+       *      Quamichan Lake Airport
+       * CYYJ Victoria International Airport
+       *      Duncan Airport
+    Recycling OSM data for way["aeroway"="heliport"]
+     A total of 0 node(s) and 0 way(s).
+    Recycling OSM data for way["natural"="water"]["tidal"!="yes"]
+     A total of 36035 node(s) and 1782 way(s).
+    Recycling OSM data for rel["natural"="water"]["tidal"!="yes"]
+     A total of 10304 node(s) and 76 relation(s).
+    Recycling OSM data for way["waterway"="riverbank"]
+     A total of 2782 node(s) and 18 way(s).
+    Recycling OSM data for rel["waterway"="riverbank"]
+     A total of 8095 node(s) and 23 relation(s).
+    Recycling OSM data for way["natural"="coastline"]
+     A total of 94185 node(s) and 1853 way(s).
+    Recycling OSM data for way["waterway"="dock"]
+     A total of 31 node(s) and 3 way(s).
+   -> process of the associated data completed : 126404 new nodes.
+-> Cutting off of too long edges,
+-> Adding patch data for the mesh, 
+     KFHR.patch.osm
+-> Adding of edges related to the orthophoto grid and computation of
+     their intersections with OSM edges,
+     Removal of obsolete edges,
+     Removal of obsolete nodes,
+-> Transcription of the updated data to the file ..\Tiles\zOrtho4XP_+48-124\Data+48-124.poly
+   Remain 215171 edges in total.
+-> Airports and patched areas have been added to the custom zoomlevel list with ZL17 and approx radius of 1 km.
+
+Completed in 21.10sec.
+_________________________________________________________________________________________________
+
+Step 2 : Building mesh for tile +48-124 : 
+--------
+
+-> Loading of elevation data.
+-> Start of the mesh algorithm Triangle4XP :
+
+  Loading altitudes from DEM file.
+
+  Computing curvatures from altitudes.
+
+  Constructing Delaunay triangulation by divide-and-conquer method.
+
+  Recovering segments in Delaunay triangulation.
+
+  Spreading regional attributes.
+
+  Adding Steiner points to enforce quality.
+
+  Computing altitude and normal maps.
+
+  Node file ..\Tiles\zOrtho4XP_+48-124\Data+48-124.1.node written to disk.
+
+  Tri file  ..\Tiles\zOrtho4XP_+48-124\Data+48-124.1.ele  written to disk.
+
+
+
+  Statistics:
+
+
+
+  Input vertices: 175009
+
+  Input segments: 215171
+
+  Input holes: 0
+
+
+
+  Mesh vertices: 713,869
+
+                  -----------------
+
+  Mesh triangles: ---> 1,419,124 <---
+
+                  -----------------
+
+  Mesh edges: 2132992
+
+  Mesh exterior boundary edges: 8612
+
+  Mesh interior boundary edges: 238265
+
+  Mesh subsegments (constrained edges): 246877
+
+
+
+-> Loading of the mesh computed by Triangle4XP.
+-> Flattening of oceans and seas, smoothing of lakes and rivers (1st pass)
+-> Flattening of airports and treatment of patches, smoothing (2nd pass).
+-> Writing of the final mesh to the file ..\Tiles\zOrtho4XP_+48-124\Data+48-124.mesh
+
+Completed in 73.62sec.
+_________________________________________________________________________________________________
+
+Step 2.5 : Building Masks for Tile +48-124 : 
+----------
+
+ Constructing binary mask for sea water / ground from mesh file ..\Tiles\zOrtho4XP_+48-124\Data+48-124.mesh
+ Blur of size masks_width applied to the binary mask...
+ Purging old masks files if needed.
+ Spitting tile mask into ZL14 based submasks and skipping black ones.
+
+Completed in 113.07sec.
+_________________________________________________________________________________________________
+
+Step 3 : Building Tile +48-124 : 
+--------
+
+Start of the texture attribution process...
+-> Computing the required pool division
+   Pool division = 32
+   Texture file 22768_10192_BI16.dds already present.
+      Use of an alpha mask.
+   Texture file 22768_10368_BI16.dds already present.
+   Texture file 22736_10240_BI16.dds already present.
+      Use of an alpha mask.
+   Texture file 22720_10336_BI16.dds already present.
+      Use of an alpha mask.
+      Use of an alpha mask.
+   Texture file 22720_10352_BI16.dds already present.
+   Texture file 22768_10208_BI16.dds already present.
+   Texture file 45024_20720_BI17.dds already present.
+   Texture file 22752_10368_BI16.dds already present.
+      Use of an alpha mask.
+   Texture file 22736_10352_BI16.dds already present.
+      Use of an alpha mask.
+   Texture file 22736_10336_BI16.dds already present.
+      Use of an alpha mask.
+   Texture file 22736_10320_BI16.dds already present.
+   Texture file 22752_10320_BI16.dds already present.
+   Texture file 22752_10352_BI16.dds already present.
+      Use of an alpha mask.
+   Texture file 22768_10352_BI16.dds already present.
+   Texture file 22752_10336_BI16.dds already present.
+   Texture file 22768_10320_BI16.dds already present.
+   Texture file 22752_10192_BI16.dds already present.
+   Texture file 22752_10304_BI16.dds already present.
+      Use of an alpha mask.
+   Texture file 22736_10304_BI16.dds already present.
+   Texture file 22752_10208_BI16.dds already present.
+      Use of an alpha mask.
+   Texture file 22736_10192_BI16.dds already present.
+      Use of an alpha mask.
+   Texture file 45008_20720_BI17.dds already present.
+      Use of an alpha mask.
+   Texture file 22640_10368_BI16.dds already present.
+      Use of an alpha mask.
+   Texture file 22656_10368_BI16.dds already present.
+   Texture file 22736_10208_BI16.dds already present.
+      Use of an alpha mask.
+   Texture file 22768_10224_BI16.dds already present.
+   Texture file 22752_10224_BI16.dds already present.
+   Texture file 22768_10240_BI16.dds already present.
+   Texture file 22752_10240_BI16.dds already present.
+   Texture file 22736_10224_BI16.dds already present.
+      Use of an alpha mask.
+      Use of an alpha mask.
+   Texture file 22496_10352_BI16.dds already present.
+      Use of an alpha mask.
+   Texture file 22720_10192_BI16.dds already present.
+      Use of an alpha mask.
+      Use of an alpha mask.
+   Texture file 22768_10336_BI16.dds already present.
+      Use of an alpha mask.
+   Texture file 22672_10192_BI16.dds already present.
+      Use of an alpha mask.
+   Texture file 22672_10208_BI16.dds already present.
+      Use of an alpha mask.
+   Texture file 22672_10224_BI16.dds already present.
+      Use of an alpha mask.
+   Texture file 22720_10240_BI16.dds already present.
+      Use of an alpha mask.
+   Texture file 22688_10240_BI16.dds already present.
+      Use of an alpha mask.
+   Texture file 22672_10240_BI16.dds already present.
+   Texture file 22768_10256_BI16.dds already present.
+   Texture file 22752_10256_BI16.dds already present.
+   Texture file 22736_10256_BI16.dds already present.
+      Use of an alpha mask.
+      Use of an alpha mask.
+   Texture file 22688_10256_BI16.dds already present.
+   Texture file 22672_10256_BI16.dds already present.
+      Use of an alpha mask.
+      Use of an alpha mask.
+   Texture file 22656_10192_BI16.dds already present.
+   Texture file 22656_10208_BI16.dds already present.
+   Texture file 22640_10192_BI16.dds already present.
+   Texture file 22640_10208_BI16.dds already present.
+   Texture file 22656_10224_BI16.dds already present.
+   Texture file 22656_10240_BI16.dds already present.
+   Texture file 22640_10224_BI16.dds already present.
+   Texture file 22640_10240_BI16.dds already present.
+   Texture file 22624_10192_BI16.dds already present.
+   Texture file 22624_10208_BI16.dds already present.
+   Texture file 22608_10192_BI16.dds already present.
+   Texture file 22592_10192_BI16.dds already present.
+   Texture file 22608_10208_BI16.dds already present.
+   Texture file 22592_10208_BI16.dds already present.
+   Texture file 22624_10224_BI16.dds already present.
+   Texture file 22608_10224_BI16.dds already present.
+   Texture file 22624_10240_BI16.dds already present.
+   Texture file 22608_10240_BI16.dds already present.
+   Texture file 22592_10224_BI16.dds already present.
+   Texture file 22592_10240_BI16.dds already present.
+   Texture file 22656_10256_BI16.dds already present.
+   Texture file 22640_10256_BI16.dds already present.
+   Texture file 22624_10256_BI16.dds already present.
+   Texture file 22608_10256_BI16.dds already present.
+   Texture file 22592_10256_BI16.dds already present.
+   Texture file 22768_10272_BI16.dds already present.
+   Texture file 22752_10272_BI16.dds already present.
+   Texture file 22736_10272_BI16.dds already present.
+      Use of an alpha mask.
+      Use of an alpha mask.
+   Texture file 22688_10272_BI16.dds already present.
+   Texture file 22672_10272_BI16.dds already present.
+      Use of an alpha mask.
+   Texture file 22656_10272_BI16.dds already present.
+   Texture file 45488_20560_BI17.dds already present.
+      Use of an alpha mask.
+   Texture file 22768_10288_BI16.dds already present.
+   Texture file 22752_10288_BI16.dds already present.
+   Texture file 45488_20576_BI17.dds already present.
+      Use of an alpha mask.
+      Use of an alpha mask.
+   Texture file 22736_10288_BI16.dds already present.
+      Use of an alpha mask.
+   Texture file 22672_10288_BI16.dds already present.
+   Texture file 22768_10304_BI16.dds already present.
+   Texture file 22656_10288_BI16.dds already present.
+      Use of an alpha mask.
+      Use of an alpha mask.
+   Texture file 22656_10304_BI16.dds already present.
+   Texture file 22640_10272_BI16.dds already present.
+      Use of an alpha mask.
+   Texture file 22624_10272_BI16.dds already present.
+      Use of an alpha mask.
+   Texture file 22640_10288_BI16.dds already present.
+   Texture file 22624_10288_BI16.dds already present.
+   Texture file 22608_10272_BI16.dds already present.
+      Use of an alpha mask.
+   Texture file 22592_10272_BI16.dds already present.
+      Use of an alpha mask.
+      Use of an alpha mask.
+   Texture file 22608_10288_BI16.dds already present.
+      Use of an alpha mask.
+      Use of an alpha mask.
+   Texture file 45200_20576_BI17.dds already present.
+      Use of an alpha mask.
+   Texture file 22640_10304_BI16.dds already present.
+   Texture file 22624_10304_BI16.dds already present.
+   Texture file 45200_20592_BI17.dds already present.
+      Use of an alpha mask.
+   Texture file 22608_10304_BI16.dds already present.
+      Use of an alpha mask.
+      Use of an alpha mask.
+   Texture file 22592_10304_BI16.dds already present.
+   Texture file 22576_10192_BI16.dds already present.
+   Texture file 22576_10208_BI16.dds already present.
+   Texture file 22560_10192_BI16.dds already present.
+   Texture file 22560_10208_BI16.dds already present.
+   Texture file 22576_10224_BI16.dds already present.
+   Texture file 22560_10224_BI16.dds already present.
+   Texture file 22576_10240_BI16.dds already present.
+   Texture file 45136_20480_BI17.dds already present.
+   Texture file 22544_10192_BI16.dds already present.
+   Texture file 22528_10192_BI16.dds already present.
+   Texture file 22544_10208_BI16.dds already present.
+   Texture file 22544_10224_BI16.dds already present.
+   Texture file 22560_10240_BI16.dds already present.
+   Texture file 22544_10240_BI16.dds already present.
+   Texture file 22528_10208_BI16.dds already present.
+   Texture file 22528_10224_BI16.dds already present.
+   Texture file 22528_10240_BI16.dds already present.
+   Texture file 22576_10256_BI16.dds already present.
+   Texture file 22560_10256_BI16.dds already present.
+      Use of an alpha mask.
+      Use of an alpha mask.
+   Texture file 45104_20512_BI17.dds already present.
+   Texture file 22544_10256_BI16.dds already present.
+   Texture file 22528_10256_BI16.dds already present.
+      Use of an alpha mask.
+      Use of an alpha mask.
+   Texture file 22512_10192_BI16.dds already present.
+   Texture file 22512_10208_BI16.dds already present.
+   Texture file 22512_10224_BI16.dds already present.
+   Texture file 22512_10240_BI16.dds already present.
+      Use of an alpha mask.
+      Use of an alpha mask.
+   Texture file 22496_10192_BI16.dds already present.
+   Texture file 22496_10208_BI16.dds already present.
+   Texture file 22496_10224_BI16.dds already present.
+      Use of an alpha mask.
+      Use of an alpha mask.
+      Use of an alpha mask.
+   Texture file 22496_10240_BI16.dds already present.
+      Use of an alpha mask.
+   Texture file 22512_10256_BI16.dds already present.
+   Texture file 22496_10256_BI16.dds already present.
+      Use of an alpha mask.
+   Texture file 22576_10272_BI16.dds already present.
+      Use of an alpha mask.
+   Texture file 22560_10272_BI16.dds already present.
+      Use of an alpha mask.
+      Use of an alpha mask.
+   Texture file 22592_10288_BI16.dds already present.
+      Use of an alpha mask.
+   Texture file 22576_10288_BI16.dds already present.
+   Texture file 22560_10288_BI16.dds already present.
+      Use of an alpha mask.
+      Use of an alpha mask.
+   Texture file 22544_10272_BI16.dds already present.
+   Texture file 22544_10288_BI16.dds already present.
+      Use of an alpha mask.
+      Use of an alpha mask.
+   Texture file 22576_10304_BI16.dds already present.
+      Use of an alpha mask.
+   Texture file 22560_10304_BI16.dds already present.
+      Use of an alpha mask.
+   Texture file 22544_10304_BI16.dds already present.
+      Use of an alpha mask.
+   Texture file 22528_10272_BI16.dds already present.
+   Texture file 22512_10272_BI16.dds already present.
+      Use of an alpha mask.
+      Use of an alpha mask.
+   Texture file 22496_10272_BI16.dds already present.
+   Texture file 22528_10288_BI16.dds already present.
+      Use of an alpha mask.
+      Use of an alpha mask.
+   Texture file 22528_10304_BI16.dds already present.
+      Use of an alpha mask.
+   Texture file 22512_10288_BI16.dds already present.
+      Use of an alpha mask.
+   Texture file 22672_10320_BI16.dds already present.
+      Use of an alpha mask.
+   Texture file 22656_10320_BI16.dds already present.
+      Use of an alpha mask.
+   Texture file 22656_10336_BI16.dds already present.
+      Use of an alpha mask.
+   Texture file 22512_10352_BI16.dds already present.
+   Texture file 22640_10320_BI16.dds already present.
+      Use of an alpha mask.
+      Use of an alpha mask.
+      Use of an alpha mask.
+      Use of an alpha mask.
+   Texture file 22624_10320_BI16.dds already present.
+      Use of an alpha mask.
+   Texture file 22640_10336_BI16.dds already present.
+      Use of an alpha mask.
+   Texture file 22624_10336_BI16.dds already present.
+      Use of an alpha mask.
+   Texture file 22640_10352_BI16.dds already present.
+   Texture file 22624_10352_BI16.dds already present.
+   Texture file 22624_10368_BI16.dds already present.
+      Use of an alpha mask.
+      Use of an alpha mask.
+   Texture file 22608_10320_BI16.dds already present.
+      Use of an alpha mask.
+   Texture file 22592_10320_BI16.dds already present.
+      Use of an alpha mask.
+   Texture file 22576_10320_BI16.dds already present.
+      Use of an alpha mask.
+   Texture file 22560_10320_BI16.dds already present.
+      Use of an alpha mask.
+   Texture file 22608_10336_BI16.dds already present.
+      Use of an alpha mask.
+   Texture file 22592_10336_BI16.dds already present.
+      Use of an alpha mask.
+   Texture file 22576_10336_BI16.dds already present.
+   Texture file 22560_10336_BI16.dds already present.
+      Use of an alpha mask.
+   Texture file 22544_10320_BI16.dds already present.
+      Use of an alpha mask.
+   Texture file 22544_10336_BI16.dds already present.
+      Use of an alpha mask.
+      Use of an alpha mask.
+   Texture file 22528_10320_BI16.dds already present.
+   Texture file 22608_10352_BI16.dds already present.
+      Use of an alpha mask.
+      Use of an alpha mask.
+      Use of an alpha mask.
+   Texture file 22608_10368_BI16.dds already present.
+      Use of an alpha mask.
+   Texture file 22592_10352_BI16.dds already present.
+      Use of an alpha mask.
+   Texture file 22576_10352_BI16.dds already present.
+      Use of an alpha mask.
+   Texture file 22560_10352_BI16.dds already present.
+      Use of an alpha mask.
+   Texture file 22592_10368_BI16.dds already present.
+      Use of an alpha mask.
+   Texture file 45168_20736_BI17.dds already present.
+      Use of an alpha mask.
+   Texture file 22576_10368_BI16.dds already present.
+      Use of an alpha mask.
+   Texture file 22560_10368_BI16.dds already present.
+      Use of an alpha mask.
+   Texture file 22512_10368_BI16.dds already present.
+      Use of an alpha mask.
+   Texture file 22496_10368_BI16.dds already present.
+  Encoding of the DSF file...
+   Final nbr of points : 1087720
+   Final nbr of cross pool tris: 67557
+
+Completed in 232.42sec.
+_________________________________________________________________________________________________
+
+
+
+
